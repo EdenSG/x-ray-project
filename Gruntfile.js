@@ -1,0 +1,228 @@
+var buildFolder = 'build/';	// Folder name followed by slash. If empty use './'.
+var destFolder = 'dist/';	// ^ Same as above. ^
+module.exports = function(grunt) {
+
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+
+        // Watch //
+        watch: {
+            js: {
+                files: [buildFolder + 'js/**.js'],
+                tasks: ['js'],
+                options: {
+                    spawn: false,
+                    interupt: true,
+                },
+            },
+            styles: {
+                files: [buildFolder + 'scss/*.css', buildFolder + 'scss/*.scss'],
+                tasks: ['styles'],
+                options: {
+                    spawn: false,
+                    interupt: true,
+                },
+            },
+            img: {
+                files: [buildFolder + 'img/**'],
+                tasks: ['images'],
+                options: {
+                    spawn: false,
+                    interupt: true,
+                },
+            },
+            html: {
+                files: [buildFolder + '**.html', '!' + destFolder + '**'],
+                tasks: ['html'],
+                options: {
+                    spawn: false,
+                    interupt: true,
+                },
+            },
+            gruntTasks: {
+                files: ['Gruntfile.js'],
+                tasks: ['default'],
+                options: {
+                    spawn: false,
+                    interupt: true,
+                },
+            }
+        },
+
+        // Bower //
+        bower_concat: {
+            all: {
+                dest: destFolder + 'js/_bower.js',
+                cssDest: destFolder + 'css/_bower.css',
+            },
+
+        },
+
+        // JS //
+        uglify: {
+            build: {
+                src: [buildFolder + 'js/script.js'],
+                dest: destFolder + 'js/main.min.js'
+            },
+            canvas: {
+                src: [buildFolder + 'js/canvas.js'],
+                dest: destFolder + 'js/canvas.js'
+            },
+            bower_js: {
+                src: [destFolder + '/js/_bower.js'],
+                dest: destFolder + '/js/_bower.js'
+            }
+        },
+
+        // CSS //
+        sass: {
+            dist: {
+                files: {
+                    'tmp/main.css': buildFolder + 'scss/main.scss'
+                }
+            }
+        },
+        cssmin: {
+            dist: {
+                files: {
+                    src: ['tmp/main.css', buildFolder + 'scss/*.css'],
+                    dest: destFolder + 'css/main.css'
+                }
+            },
+            bower_css: {
+                files: {
+                    src: [destFolder + 'css/_bower.css'],
+                    dest: destFolder + 'css/_bower.css'
+                }
+            }
+        },
+        autoprefixer: {
+            autoprefix: {
+                expand: true,
+                flatten: true,
+                src: destFolder + 'css/main.css',
+                dest: destFolder + 'css/',
+            },
+        },
+        uncss: {
+            dist: {
+                files: {
+                    src: [destFolder + '**.html'],
+                    dest: destFolder + 'css/main.css'
+                }
+            }
+        },
+
+        // Images //
+        copy: {
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: buildFolder + 'img',
+                    src: ['**'],
+                    dest: destFolder + 'img'
+                }]
+            }
+        },
+        imageoptim: {
+            myTask: {
+                options: {
+                    jpegMini: false,
+                    imageAlpha: false,
+                    quitAfter: true
+                },
+                src: [destFolder + 'img']
+            }
+        },
+
+
+        // HTML //
+        htmlmin: {
+            main: {
+                options: { // Target options
+                    removeComments: false,
+                    collapseWhitespace: true,
+                    minifyJS: true,
+                    minifyCSS: true
+                },
+                files: [{
+                    expand: true, // Enable dynamic expansion.
+                    cwd: buildFolder, // Src matches are relative to this path.
+                    src: ['**.html'], // Actual pattern(s) to match.
+                    dest: destFolder, // Destination path prefix.
+                    ext: '.html', // Dest filepaths will have this extension.
+                    extDot: 'first' // Extensions in filenames begin after the first dot
+                }]
+            }
+        },
+
+
+        // Clean //
+        clean: ['tmp'],
+
+        // Host //
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src: [destFolder + '**']
+                },
+                options: {
+                    watchTask: true,
+                    server: {
+                        baseDir: destFolder
+                    },
+                    ghostMode: false
+                }
+            },
+            host: {
+                bsFiles: {
+                    src: [destFolder + '**']
+                },
+                options: {
+                    watchTask: false,
+                    server: {
+                        baseDir: destFolder
+                    },
+                    ghostMode: false
+                }
+            }
+        },
+    });
+
+    // Load the plugins
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    // JS
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    // Styles
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-uncss');
+    // HTML
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    // Images
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-imageoptim');
+    // Utilities
+    grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-bower-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+
+
+    // Tasks
+    grunt.registerTask('default', ['bower', 'html', 'js', 'styles', 'images']);
+
+    grunt.registerTask('bower', ['bower_concat']);
+    
+    grunt.registerTask('js', ['uglify']);
+    grunt.registerTask('html', ['htmlmin']);
+    grunt.registerTask('styles', ['sass', 'cssmin', 'newer:uncss:dist', 'autoprefixer', 'clean']);
+    grunt.registerTask('images', ['newer:copy:main', 'newer:imageoptim:myTask']);
+
+    grunt.registerTask('serve', ['default', 'browserSync:dev', 'watch']);
+    grunt.registerTask('host', 'browserSync:host');
+
+
+};
