@@ -1,5 +1,5 @@
-var buildFolder = 'build/';	// Folder name followed by slash. If empty use './'.
-var destFolder = 'dist/';	// ^ Same as above. ^
+var buildFolder = 'build/'; // Folder name followed by slash. If empty use './'.
+var destFolder = 'dist/'; // ^ Same as above. ^
 module.exports = function(grunt) {
 
     // Project configuration.
@@ -215,7 +215,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['bower', 'html', 'js', 'styles', 'images']);
 
     grunt.registerTask('bower', ['bower_concat']);
-    
+
     grunt.registerTask('js', ['uglify']);
     grunt.registerTask('html', ['htmlmin']);
     grunt.registerTask('styles', ['sass', 'cssmin', 'newer:uncss:dist', 'autoprefixer', 'clean']);
