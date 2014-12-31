@@ -125,14 +125,24 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        imageoptim: {
-            myTask: {
-                options: {
-                    jpegMini: false,
-                    imageAlpha: false,
-                    quitAfter: true
-                },
-                src: [destFolder + 'img']
+        // imageoptim: {
+        //     myTask: {
+        //         options: {
+        //             jpegMini: false,
+        //             imageAlpha: false,
+        //             quitAfter: true
+        //         },
+        //         src: [destFolder + 'img']
+        //     }
+        // },
+        image: {
+            compress: {
+                files: [{
+                    expand: true,
+                    cwd: destFolder + 'img/',
+                    src: ['**/*.{png,jpg,gif,svg}'],
+                    dest: 'dist/'
+                }]
             }
         },
 
@@ -203,7 +213,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     // Images
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-imageoptim');
+    grunt.loadNpmTasks('grunt-image');
     // Utilities
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-newer');
