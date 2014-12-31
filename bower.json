@@ -1,0 +1,13 @@
+{
+    "name": "X-Rays",
+    "authors": [
+        "Eden S.-G. <edgro2693@gmail.com>"
+    ],
+    "description": "A school project on X-rays",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components"
+    ]
+}
