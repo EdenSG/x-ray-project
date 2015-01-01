@@ -1,0 +1,111 @@
+body {
+  font-family: $base-font-family;
+  font-size: 17px;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 500;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  font-family: $header-font-family;
+  text-transform: uppercase;
+}
+.color-highlight {
+  color: hsl(hue($theme-color), 60%, 55%);
+}
+body .skrollable {
+  position: fixed;
+}
+.light {
+  color: #e0e0e0;
+  font-weight: 200;
+}
+section {
+  width: 100%;
+  h1 {
+    font-size: $h1;
+  }
+  h2 {
+    font-size: $h2;
+  }
+  h3 {
+    font-size: $h3;
+  }
+  h4 {
+    font-size: $h4;
+  }
+  h5 {
+    font-size: $h5;
+  }
+  h6 {
+    font-size: $h6;
+  }
+}
+.container {
+  max-width: $content-width;
+  width: 80%;
+  margin: 0 auto;
+}
+$nav-width: 14em;
+nav {
+  font-size: $small-font-size;
+  font-family: $header-font-family;
+  position: fixed;
+  top: 1em;
+  right:0;
+  width: $nav-width;
+  transform: translateX(90%);
+  padding: 1em 2em;
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  z-index: 99999;
+  transition: all 0.5s ease;
+  @include card(1);
+
+  &:before {
+    content: 'Menu';
+    position: fixed;
+    text-align: right;
+    display: block;
+    margin-right: $nav-width + 4em;
+    right: -2px;
+    background: #eee;
+    transition: background 0.5s ease;
+    padding: 0.5em;
+    border-radius: 3px 0 0 3px;
+    font-weight: 200;
+  }
+  &:hover {
+    @include card(4);
+    transform: translateX(0);
+  }
+  div {
+    border-left: 1px solid #888;
+    padding: 0 0.5em;
+    margin-bottom: 1em;
+    a {
+      text-indent: 1em;
+    }
+  }
+  a {
+    display: block;
+    font-family: $base-font-family;
+    color: $text-color;
+  }
+  &.light {
+    background: #fff - $background-color;
+    &:before {
+      background: #fff - $background-color;
+    }
+    div {
+      font-weight: 500;
+    }
+    a {
+      color: $background-color;
+    }
+  }
+}
