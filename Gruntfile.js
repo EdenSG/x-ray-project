@@ -1,6 +1,12 @@
 var buildFolder = 'build/'; // Folder name followed by slash. If empty use './'.
-var destFolder = 'dist/'; // ^ Same as above. ^
+var destFolder = 'dist/'; // Same as above.
+
+var useBower = true,
+    useUnCSS = false;
 module.exports = function(grunt) {
+
+    // Load the plugins
+    require('load-grunt-tasks')(grunt);
 
     // Project configuration.
     grunt.initConfig({
@@ -65,10 +71,6 @@ module.exports = function(grunt) {
                 src: [buildFolder + 'js/script.js'],
                 dest: destFolder + 'js/main.min.js'
             },
-            canvas: {
-                src: [buildFolder + 'js/canvas.js'],
-                dest: destFolder + 'js/canvas.js'
-            },
             bower_js: {
                 src: [destFolder + '/js/_bower.js'],
                 dest: destFolder + '/js/_bower.js'
@@ -85,16 +87,22 @@ module.exports = function(grunt) {
         },
         cssmin: {
             dist: {
-                files: {
-                    src: ['tmp/main.css', buildFolder + 'scss/*.css'],
-                    dest: destFolder + 'css/main.css'
-                }
+                files: [{
+                    expand: true,
+                    cwd: 'tmp/',
+                    src: ['*.css'],
+                    dest: destFolder + 'css/',
+                    ext: '.min.css'
+                }]
             },
             bower_css: {
-                files: {
-                    src: [destFolder + 'css/_bower.css'],
-                    dest: destFolder + 'css/_bower.css'
-                }
+                files: [{
+                    expand: true,
+                    cwd: destFolder + 'css/',
+                    src: ['_bower.css'],
+                    dest: destFolder + 'css/',
+                    ext: '.css'
+                }]
             }
         },
         autoprefixer: {
@@ -198,38 +206,68 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        //////////////////////
+        //                  //
+        //   Custom Tasks   //
+        //                  //
+        //////////////////////
+
+        // Build HTML from MMD
+        shell: {
+            index: {
+                // command: "multimarkdown x-ray-project.md > build/index.html"
+                command: ""
+            }
+        }
+
+
+
+
+
+
+
+
     });
 
-    // Load the plugins
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    // JS
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    // Styles
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-autoprefixer');
-    grunt.loadNpmTasks('grunt-uncss');
-    // HTML
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    // Images
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-image');
-    // Utilities
-    grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.loadNpmTasks('grunt-newer');
-    grunt.loadNpmTasks('grunt-bower-concat');
-    grunt.loadNpmTasks('grunt-contrib-clean');
+    // // Load the plugins
+    // grunt.loadNpmTasks('grunt-contrib-watch');
+    // // JS
+    // grunt.loadNpmTasks('grunt-contrib-uglify');
+    // // Styles
+    // grunt.loadNpmTasks('grunt-contrib-sass');
+    // grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // grunt.loadNpmTasks('grunt-autoprefixer');
+    // grunt.loadNpmTasks('grunt-uncss');
+    // // HTML
+    // grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    // // Images
+    // grunt.loadNpmTasks('grunt-contrib-copy');
+    // grunt.loadNpmTasks('grunt-image');
+    // // Utilities
+    // grunt.loadNpmTasks('grunt-browser-sync');
+    // grunt.loadNpmTasks('grunt-newer');
+    // grunt.loadNpmTasks('grunt-bower-concat');
+    // grunt.loadNpmTasks('grunt-contrib-clean');
 
 
     // Tasks
-    grunt.registerTask('default', ['bower', 'html', 'js', 'styles', 'images']);
+    if (useBower) {
+        grunt.registerTask('default', ['bower', 'shell', 'html', 'js', 'styles', 'images']);
+    } else {
+        grunt.registerTask('default', ['shell', 'html', 'js', 'styles', 'images']);
+    }
 
     grunt.registerTask('bower', ['bower_concat']);
 
     grunt.registerTask('js', ['uglify']);
     grunt.registerTask('html', ['htmlmin']);
-    grunt.registerTask('styles', ['sass', 'cssmin', 'newer:uncss:dist', 'autoprefixer', 'clean']);
-    grunt.registerTask('images', ['newer:copy:main', 'newer:imageoptim:myTask']);
+    if (useUnCSS) {
+        grunt.registerTask('styles', ['sass', 'cssmin', 'newer:uncss:dist', 'autoprefixer']);
+    } else {
+        grunt.registerTask('styles', ['sass', 'cssmin', 'autoprefixer']);
+    }
+    grunt.registerTask('images', ['newer:copy:main', 'newer:image:compress']);
 
     grunt.registerTask('serve', ['default', 'browserSync:dev', 'watch']);
     grunt.registerTask('host', 'browserSync:host');
