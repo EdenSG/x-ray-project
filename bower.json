@@ -1,13 +1,22 @@
 {
-    "name": "X-Rays",
-    "authors": [
-        "Eden S.-G. <edgro2693@gmail.com>"
-    ],
-    "description": "A school project on X-rays",
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components"
-    ]
+  "name": "X-Rays",
+  "authors": [
+    "Eden S.-G. <edgro2693@gmail.com>"
+  ],
+  "description": "A school project on X-rays",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tmp"
+  ],
+  "version": "0.0.0",
+  "homepage": "https://github.com/EdenSG/xray",
+  "main": "index.html",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "skrollr": "~0.6.29"
+  }
 }
