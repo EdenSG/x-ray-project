@@ -53,7 +53,7 @@ $h1:                9 / 7 * $h2;
 }
 
 
-@mixin card($depth) {
+@mixin material-shadow($depth) {
   @if $depth < 1 {
     box-shadow: none;
   } @else if $depth > 5 {
