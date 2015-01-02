@@ -39,7 +39,7 @@ module.exports = function(grunt) {
                 },
             },
             html: {
-                files: [buildFolder + '**.html', '!' + destFolder + '**'],
+                files: [buildFolder + '**/*.html', '!' + destFolder + '**'],
                 tasks: ['html'],
                 options: {
                     spawn: false,
@@ -61,7 +61,11 @@ module.exports = function(grunt) {
             all: {
                 dest: destFolder + 'js/_bower.js',
                 cssDest: destFolder + 'css/_bower.css',
+                mainFiles: {
+                    'skrollr-menu': 'dist/skrollr.menu.min.js'
+                }
             },
+
 
         },
 
@@ -167,10 +171,9 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true, // Enable dynamic expansion.
                     cwd: buildFolder, // Src matches are relative to this path.
-                    src: ['**.html'], // Actual pattern(s) to match.
+                    src: ['**/*.html'], // Actual pattern(s) to match.
                     dest: destFolder, // Destination path prefix.
                     ext: '.html', // Dest filepaths will have this extension.
-                    extDot: 'first' // Extensions in filenames begin after the first dot
                 }]
             }
         },
