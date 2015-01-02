@@ -57,7 +57,7 @@ $h1:                9 / 7 * $h2;
   @if $depth < 1 {
     box-shadow: none;
   } @else if $depth > 5 {
-    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+    @warn "Invalid $depth `#{$depth}` for mixin `material-shadow`.";
   } @else {
     box-shadow: bottom-shadow($depth), top-shadow($depth);
   }

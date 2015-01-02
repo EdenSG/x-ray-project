@@ -15,6 +15,13 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   margin: 0;
 }
+u {
+  text-decoration: none;
+  display: inline-block;
+  background: linear-gradient(currentColor, currentColor) center 1.2em no-repeat;
+  background-size: 99% 1px;
+  text-shadow: 2px 0 0 hsl(hue($theme-color), 60%, 55%), -2px 0 0 hsl(hue($theme-color), 60%, 55%), 0 2px 0 hsl(hue($theme-color), 60%, 55%);
+}
 .color-highlight {
   color: hsl(hue($theme-color), 60%, 55%);
 }
