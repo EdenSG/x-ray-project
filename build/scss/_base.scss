@@ -18,15 +18,13 @@ h1, h2, h3, h4, h5, h6 {
 u {
   text-decoration: none;
   display: inline-block;
-  background: linear-gradient(currentColor, currentColor) center 1.2em no-repeat;
-  background-size: 99% 1px;
-  text-shadow: 3px 0 0 $text-color, -3px 0 0 $text-color, 0 2px 0 $text-color;
+  @include underline($background-color, #999, .15em, 2, 100%, 1.2em);
 }
 .light u, u.light {
-  text-shadow: 3px 0 0 $background-color, -3px 0 0 $background-color, 0 2px 0 $background-color;
+  @include underline($text-color, #999, .15em, 2, 100%, 1.2em);
 }
 .red u, u.red {
-  text-shadow: 3px 0 0 $theme-color, -3px 0 0 $theme-color, 0 2px 0 $theme-color;
+  @include underline($theme-color, #999, .15em, 2, 100%, 1.2em);
 }
 .color-highlight {
   color: $theme-color;
@@ -87,7 +85,7 @@ nav {
   transform: translateX(90%);
   padding: 1em 2em;
   background: #eee;
-  border-radius: 3px 0 0 3px;
+  border-radius: $border-radius 0 0 $border-radius;
   z-index: 99999;
   transition: all 0.5s ease;
   @include material-shadow(1);
@@ -100,14 +98,19 @@ nav {
     margin-right: $nav-width + 4em;
     right: -2px;
     background: #eee;
-    transition: background 0.5s ease;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
     padding: 0.5em;
-    border-radius: 3px 0 0 3px;
+    border-radius: $border-radius 0 0 $border-radius;
     font-weight: 200;
+    box-shadow: 6px 0 0 #eee, 0 1.5px 6px rgba(0,0,0,.12),0 1.5px 4px rgba(0,0,0,.24);
   }
   &:hover {
     @include material-shadow(3);
     transform: translateX(0);
+    &:before {
+      // @include material-shadow(3);
+      box-shadow: 20px 0 0 #eee, 40px 0 0 #eee, 0 6px 12px rgba(0,0,0,.23),0 10px 40px rgba(0,0,0,.19)
+    }
   }
   div {
     border-left: 1px solid #888;
@@ -124,9 +127,10 @@ nav {
     transition: text-shadow 0.5s ease, background 0.5s ease;
     font-family: $base-font-family;
     color: $text-color;
-    text-shadow: 3px 0 0 #eee, -3px 0 0 #eee, 0 2px 0 #eee;
-    background: linear-gradient(#999, #999) center 1.27em no-repeat;
-    background-size: 100% 1px;
+    // text-shadow: 0.1em 0 0 #eee, -0.1em 0 0 #eee, 0 2px 0 #eee, 0 -2px 0 #eee;
+    @include underline(#eee, #999, .2em, 4, 100%, 1.2em);
+    // background: linear-gradient(#999, #999) center 1.2em no-repeat;
+    // background-size: 100% 1px;
     &:hover {
       background-size: 60% 1px;
     }
@@ -135,13 +139,14 @@ nav {
     background: #fff - $background-color;
     &:before {
       background: #fff - $background-color;
+      box-shadow: 6px 0 0 #fff - $background-color, 0 1.5px 6px rgba(0,0,0,.12),0 1.5px 4px rgba(0,0,0,.24);
     }
     div {
       font-weight: 500;
     }
     a {
       color: $background-color;
-      text-shadow: 3px 0 0 #fff - $background-color, -3px 0 0 #fff - $background-color, 0 2px 0 #fff - $background-color;
+      text-shadow: 3px 0 0 #fff - $background-color, -3px 0 0 #fff - $background-color, 0 2px 0 #fff - $background-color, 0 -2px 0 #fff - $background-color;
     }
   }
 }
@@ -149,6 +154,7 @@ nav {
 
 ::selection {
   background: transparentize($theme-color, 0.6);
+  text-shadow: none;
 }
 .red ::selection {
   background: transparentize($background-color, 0.6);

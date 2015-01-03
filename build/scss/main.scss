@@ -4,8 +4,10 @@
 $base-font-family:  'Merriweather';
 $header-font-family:'Oswald';
 $base-font-size:    2.3vmin;
-$small-font-size:   $base-font-size / (9/7);
+$small-font-size:   $base-font-size / (9/7)vmin;
 $base-line-height:  1.5;
+
+$border-radius:     0.2em;
 
 $spacing-unit:      30px;
 
@@ -63,6 +65,18 @@ $h1:                9 / 7 * $h2;
   }
 }
 
+@mixin underline($background-color, $line-color, $distance, $count, $size, $offset) {
+  $shadow: $distance 0 0 $background-color, -$distance 0 0 $background-color, 0 ($distance/2) 0 $background-color, 0 (-$distance/2) 0 $background-color;
+  $dist-inc: $distance / $count;
+  $dist-so-far: 0;
+    @for $i from 1 through $count {
+        $shadow: $shadow, ($dist-so-far + $dist-inc) 0 0 $background-color, -($dist-so-far + $dist-inc) 0 0 $background-color, 0 (($dist-so-far + $dist-inc)/2) 0 $background-color, 0 (-($dist-so-far + $dist-inc)/2) 0 $background-color;
+        $dist-so-far: $dist-so-far + $dist-inc;
+    }
+    text-shadow: $shadow;
+    background: linear-gradient($line-color, $line-color) center $offset no-repeat;
+    background-size: $size 1px;
+}
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
