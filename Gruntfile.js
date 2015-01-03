@@ -62,12 +62,14 @@ module.exports = function(grunt) {
                 dest: destFolder + 'js/_bower.js',
                 cssDest: destFolder + 'css/_bower.css',
                 mainFiles: {
-                    'skrollr-menu': 'dist/skrollr.menu.min.js'
+                    'skrollr-menu': 'dist/skrollr.menu.min.js',
+                    'photoswipe': ['dist/photoswipe.css', 'dist/photoswipe.js', 'dist/photoswipe-ui-default.js']
                 },
                 include: [
                     'modernizr',
                     'skrollr',
-                    'skrollr-menu'
+                    'skrollr-menu',
+                    'photoswipe'
                 ]
             },
 
@@ -207,6 +209,7 @@ module.exports = function(grunt) {
                 },
                 options: {
                     watchTask: false,
+                    notify: false,
                     server: {
                         baseDir: destFolder
                     },
