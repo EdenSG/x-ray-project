@@ -63,7 +63,12 @@ module.exports = function(grunt) {
                 cssDest: destFolder + 'css/_bower.css',
                 mainFiles: {
                     'skrollr-menu': 'dist/skrollr.menu.min.js'
-                }
+                },
+                include: [
+                    'modernizr',
+                    'skrollr',
+                    'skrollr-menu'
+                ]
             },
 
 

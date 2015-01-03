@@ -20,6 +20,12 @@ u {
   display: inline-block;
   background: linear-gradient(currentColor, currentColor) center 1.2em no-repeat;
   background-size: 99% 1px;
+  text-shadow: 2px 0 0 $text-color, -2px 0 0 $text-color, 0 2px 0 $text-color;
+}
+.light u, u.light {
+  text-shadow: 2px 0 0 $background-color, -2px 0 0 $background-color, 0 2px 0 $background-color;
+}
+.red u, u.red {
   text-shadow: 2px 0 0 hsl(hue($theme-color), 60%, 55%), -2px 0 0 hsl(hue($theme-color), 60%, 55%), 0 2px 0 hsl(hue($theme-color), 60%, 55%);
 }
 .color-highlight {
@@ -138,4 +144,9 @@ nav {
       text-shadow: 3px 0 0 #fff - $background-color, -3px 0 0 #fff - $background-color, 0 2px 0 #fff - $background-color;
     }
   }
+}
+
+
+::selection {
+  background: transparentize(lighten($theme-color, 30%), 0.8);
 }

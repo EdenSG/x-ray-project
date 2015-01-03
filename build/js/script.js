@@ -11,11 +11,15 @@ var s = skrollr.init({
             return Math.pow(p, 1 / 6);
         },
         teninv: function(p) {
-            return Math.pow(p, .1);
+            return Math.pow(p, 0.1);
         },
     },
     smoothScrolling: false
 });
+
+// skrollr.menu.init(s);
+
+
 function scrollTo(distance_percent) {
     document.body.scrollTop = distance_percent / 100 * window.innerHeight;
     console.log('done');
