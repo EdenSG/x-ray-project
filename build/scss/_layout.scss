@@ -1,6 +1,7 @@
 [id="title"] {
     text-align: center;
     width: 100%;
+    top:0;
     h1 {
         font-size: 30vmin;
     }
@@ -44,5 +45,21 @@ figure {
         text-align: center;
         font-style: italic;
         transform: scaleX(1.25);
+    }
+}
+
+[id="references"] {
+    margin-bottom: $spacing-unit * 2;
+    a {
+        color: $theme-color;
+        transition: all 0.4s ease;
+        text-decoration: none;
+        @include underline($background-color, darken($theme-color, 15%), 0.2em, 3, 100%, 1.1em);
+        &:hover {
+            color: darken($theme-color, 30%);
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 0 0 transparent;
+            @include underline($background-color, darken($theme-color, 15%), 0.2em, 3, 100%, 1.1em);
+        }
     }
 }
