@@ -20,15 +20,29 @@ An **x-ray tube** is a device that emits x-rays. There are quite a few types of 
 
 ### How an x-ray is taken
 
-X-rays are fired out of an x-ray tube towards the subject, where they pass through or are absorbed by various tissues to varying amounts. The x-rays then hit the sensor that measures the levels. 
+X-rays are fired out of an x-ray tube towards the subject, where they pass through or are absorbed by various tissues to varying amounts. The x-rays then hit the sensor that measures the levels. For a normal chest x-ray, you will be positioned between an x-ray tube and apparatus and an x-ray film or digital sensor. You will likely be asked to remove metal jewelry, and depending on what you are being diagnosed for, you may be asked to take a deep breath in so that your lungs are fully inflated and more visible.
+On the radiologist’s side, there are a couple things that are looked for in the x-ray image. Often an <u>ABCDEF</u> acronym is used: 
 
+> <p>**A**irways (hilar adenopathy or enlargement)</p>
+> <p>**B**reast shadows/ Bones (rib fractures, lytic bone lesions)</p>
+> <p>**C**ardiac silhoutte (cardiac enlargement)/ Costophrenic angles (pleural effusions)</p>
+> <p>**D**iaphragm (evidence of free air)/ Digestive tract</p>
+> <p>**E**dges (apices for fibrosis, pneumothorax, pleural thickening or plaques)/ Extrathoracic tissues</p>
+> <p>**F**ields (evidence of alveolar filling)/ Failure (alveolar air space disease with prominent vascularity with or without pleural effusions)</p>
+
+(MedicalMnemonics.com, 2006, p. 10)
+
+![A chest x-ray showing prominent pneumonia (circled)](img/pneumonia-xray.jpg)
 
 ## Science Applications (10)
 
 ### Issues:
 
-- Carcinogenic
-- Radiation sickness
-- 
+There are a couple issues with x-rays, by far the largest being that x-rays are a type of ionizing radiation — similar to radiation from nuclear fission — and are widely classified as a carcinogen. The level of radiation that a patient is exposed to during a normal radiograph is very low, generally known as too low to cause any harm, except when repeated very often. However, the levels of exposure that a patient is exposed to for a Computed tomography (CT) scan are much higher, and it is estimated that about 0.4% of cancers in the US are caused by CT scans (Brenner & Hall, 2007). The average chest radiograph delivers the same amount of radiation as 10 days worth of background radiation (0.1mSv), whereas a chest CT scan delivers about 70 times as much radiation, equal to about 2 years of background radiation.
+
+Another issue with radiography is that, due to the decreasing cost and incresing availability of outsourced labour, much of the analysis of radiographs is now being outsourced to India, so medical organizations are sending raw data to India and recieving diagnoses for far less cost than had they hired experienced radiologists to work in their facilities. 
+
+Finally, as x-rays are becoming more and more popular, cheap, and reliable, medical students are taught how to diagnose many types of diseases from x-rays, but they are not often taught of the risks involved with x-rays (Pai, 2010).
+
 
 [^x-ray_tube]: ![](https://www.orau.org/ptp/collection/xraytubescoolidge/GE-D17.jpg)
