@@ -1,9 +1,19 @@
 [id="title"] {
     text-align: center;
     width: 100%;
-    top:0;
+    top: 0;
+    background-image: url(/img/xrays.svg);
+    background-size: 82.6vmin;
+    background-repeat: no-repeat;
+    background-position: 49.7% 35.7vmin;
     h1 {
         font-size: 30vmin;
+        span {
+            transition: all 0.6s ease;
+            &:not(.no-opacity):hover {
+                color: transparent;
+            }
+        }
     }
 }
 ul li {
