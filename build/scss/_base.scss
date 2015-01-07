@@ -1,5 +1,6 @@
 body {
     background-color: $background-color;
+    // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAKUlEQVQIW2OcN2/efwY0wAjiI0skJSUxggVhEiABEBsuiGwC/QSxOR4Axb0NvZ03g04AAAAASUVORK5CYII=);
     font-family: $base-font-family;
     font-size: 17px;
     font-size: $base-font-size;
@@ -201,7 +202,7 @@ figure {
     }
     img {
         width: 90%;
-        padding: 5%;
+        padding: 1em;
         @include material-shadow(1);
         border-radius: $border-radius;
         background: lighten($background-color, 10%);

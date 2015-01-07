@@ -21,6 +21,12 @@
     background: $background-color;
     @include material-shadow(4);
     border-radius: $border-radius;
+    figure {
+        width: 100%;
+        img {
+            padding: 1em;
+        }
+    }
 }
 
 [id="references"] {
