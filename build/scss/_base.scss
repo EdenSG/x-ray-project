@@ -168,6 +168,6 @@ nav {
     text-shadow: none;
 }
 
-.red::selection {
+.red ::selection {
     background: transparentize($background-color, 0.6);
 }

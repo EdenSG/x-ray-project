@@ -274,9 +274,9 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['uglify']);
     grunt.registerTask('html', ['htmlmin']);
     if (useUnCSS) {
-        grunt.registerTask('styles', ['sass', 'cssmin', 'newer:uncss:dist', 'autoprefixer']);
+        grunt.registerTask('styles', ['sass', 'cssmin', 'newer:uncss:dist', 'autoprefixer', 'clean']);
     } else {
-        grunt.registerTask('styles', ['sass', 'cssmin', 'autoprefixer']);
+        grunt.registerTask('styles', ['sass', 'cssmin', 'autoprefixer', 'clean']);
     }
     grunt.registerTask('images', ['newer:copy:main', 'newer:image:compress']);
 

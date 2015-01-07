@@ -16,10 +16,12 @@
         }
     }
 }
+
 ul li {
     list-style: bullet outside none;
     margin-bottom: 1em;
 }
+
 figure {
     float: right;
     background: $background-color;
@@ -29,7 +31,7 @@ figure {
     width: 20em;
     padding: 0;
     margin: 1%;
-    border-radius: #{$border-radius*1.25} / #{$border-radius};
+    border-radius: #{$border-radius * 1.25} / #{$border-radius};
     @include material-shadow(1);
     transform: scaleX(0.8);
     transition: all 0.5s ease;
@@ -49,7 +51,7 @@ figure {
         transform: scaleX(1.25);
     }
     figcaption {
-        font-size: (7em/9);
+        font-size: (7em / 9);
         padding: 0.4em;
         margin: 0;
         text-align: center;
