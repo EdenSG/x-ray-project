@@ -12,12 +12,15 @@ An **x-ray tube** is a device that emits x-rays. There are quite a few types of 
 
 ### Interesting facts
 
-* There are two types of x-rays: *soft x-rays* and *hard x-rays*. Hard x-rays 
-* X-rays carry about 1,000,000 times the energy of visible light
+* There are two types of x-rays: *soft x-rays* and *hard x-rays*. Soft x-rays are usually defined as within the range of 10nm to 100pm (10<sup>-8</sup>m to 10<sup>-10</sup>m), whereas hard x-rays are between 100pm and 10pm (10<sup>-10</sup>m to 10<sup>-11</sup>m).
+* X-rays carry about 1,000,000 times the energy of visible light.
+* They were first studied by Wilhelm Röntgen in 1885, and by Nickola Tesla in 1884.
+* X-rays were first used medically in January 1896 in Birmingham, England to see a needle stuck in a patient's hand.
+* The most common type of x-ray tube is the Coolidge tube, which works by shooting electrons at an anode target.
 
 ### How an x-ray is taken
 
-X-rays are fired out of an x-ray tube towards the subject, where they pass through or are absorbed by various tissues to varying amounts. The x-rays then hit the sensor that measures the levels.
+X-rays are fired out of an x-ray tube towards the subject, where they pass through or are absorbed by various tissues to varying amounts. The x-rays then hit the sensor that measures the levels. 
 
 
 ## Science Applications (10)
