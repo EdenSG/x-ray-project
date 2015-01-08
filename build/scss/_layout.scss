@@ -1,3 +1,23 @@
+[id="too-small"] {
+    display: none;
+    position: fixed;
+    background: $theme-color;
+    z-index: 9999;
+    width: 100%;
+    padding: 2em;
+    @include material-shadow(2);
+    text-align: center;
+    @media (max-height: 700px), (max-width: 700px) {
+        display: block;
+    }
+
+    a {
+        @include underline($theme-color, $text-color, 0, 1, 90%, 1.3em);
+    }
+}
+
+
+
 [id="title"] {
     text-align: center;
     width: 100%;
@@ -5,11 +25,11 @@
     background-image: url(/img/xrays2.svg);
     background-size: 81.8vmin;
     background-repeat: no-repeat;
-    background-position: 49.93% 36.6vmin;
+    background-position: 49.925% 36.51vmin;
     h1 {
         font-size: 30vmin;
         span {
-            transition: all 0.6s ease;
+            transition: color 0.6s ease;
             &:not(.no-opacity):hover {
                 color: transparent;
             }

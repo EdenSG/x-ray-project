@@ -1,51 +1,3 @@
-var s = skrollr.init({
-    easing: {
-        //This easing will sure drive you crazy
-        ten: function(p) {
-            return Math.pow(p, 10);
-        },
-        six: function(p) {
-            return Math.pow(p, 6);
-        },
-        three: function(p) {
-            return Math.pow(p, 3);
-        },
-        threeinv: function(p) {
-            return Math.pow(p, 1 / 3);
-        },
-        sixinv: function(p) {
-            return Math.pow(p, 1 / 6);
-        },
-        teninv: function(p) {
-            return Math.pow(p, 1 / 10);
-        },
-        bez: function(p) {
-            return Bezier.cubicBezier(.92, .01, .18, 1, p);
-        },
-        beztwo: function(p) {
-            return Bezier.cubicBezier(.02, .87, .97, .11, p);
-        }
-    },
-    smoothScrolling: false,
-    edgeStrategy: 'set'
-});
-
-skrollr.menu.init(s);
-
-
-function scrollTo(num) {
-    // document.body.scrollTop = navLinks[num].getAttribute("data-scroll-top") / 100 * window.innerHeight;
-}
-
-var navLinks = document.querySelectorAll('nav a[data-scroll-top]');
-
-
-// navLinks[1].addEventListener('click', function(e) {
-//     // e.preventDefault;
-//     document.body.scrollTop = navLinks[1].getAttribute("data-scroll-top") / 100 * window.innerHeight;
-// });
-
-
 /**
  * JavaScript port of Webkit implementation of CSS cubic-bezier(p1x.p1y,p2x,p2y) by http://mck.me
  * http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
@@ -279,3 +231,63 @@ var Bezier = (function() {
         }
     };
 })();
+
+
+var s = skrollr.init({
+    easing: {
+        //This easing will sure drive you crazy
+        ten: function(p) {
+            return Math.pow(p, 10);
+        },
+        six: function(p) {
+            return Math.pow(p, 6);
+        },
+        three: function(p) {
+            return Math.pow(p, 3);
+        },
+        threeinv: function(p) {
+            return Math.pow(p, 1 / 3);
+        },
+        sixinv: function(p) {
+            return Math.pow(p, 1 / 6);
+        },
+        teninv: function(p) {
+            return Math.pow(p, 1 / 10);
+        },
+        bez: function(p) {
+            return Bezier.cubicBezier(.92, .01, .18, 1, p);
+        },
+        beztwo: function(p) {
+            return Bezier.cubicBezier(.02, .87, .97, .11, p);
+        }
+    },
+    smoothScrolling: false,
+    render: function(data) {
+        //Loop
+        if (data.curTop == data.maxTop-10) {
+            document.body.scrollTop = 0;
+        }
+        console.log('render');
+    }
+});
+
+skrollr.menu.init(s);
+
+
+function scrollTo(num) {
+    // document.body.scrollTop = navLinks[num].getAttribute("data-scroll-top") / 100 * window.innerHeight;
+}
+
+function hideAlert() {
+    document.getElementById('too-small').style.display = "none"
+}
+
+var navLinks = document.querySelectorAll('nav a[data-scroll-top]');
+
+
+// navLinks[1].addEventListener('click', function(e) {
+//     // e.preventDefault;
+//     document.body.scrollTop = navLinks[1].getAttribute("data-scroll-top") / 100 * window.innerHeight;
+// });
+
+

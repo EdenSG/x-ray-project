@@ -15,6 +15,10 @@ body {
   }
 }
 
+.center {
+  text-align: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   font-weight: 500;
@@ -152,6 +156,9 @@ nav {
     &:before {
       // @include material-shadow(3);
       box-shadow: 20px 0 0 #eee, 40px 0 0 #eee, top-shadow(3), bottom-shadow(3);
+      @media (max-height: 800px), (max-width: 800px) {
+        box-shadow: 15px 0 0 #eee, top-shadow(1), bottom-shadow(1);
+      }
     }
   }
   div {
