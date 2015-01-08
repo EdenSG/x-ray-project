@@ -30,14 +30,15 @@ var s = skrollr.init({
     edgeStrategy: 'set'
 });
 
-skrollr.menu.init(s);
+/*
+// skrollr.menu.init(s);
 
 
-function scrollTo(num) {
-    // document.body.scrollTop = navLinks[num].getAttribute("data-scroll-top") / 100 * window.innerHeight;
-}
+// function scrollTo(num) {
+//     // document.body.scrollTop = navLinks[num].getAttribute("data-scroll-top") / 100 * window.innerHeight;
+// }
 
-var navLinks = document.querySelectorAll('nav a[data-scroll-top]');
+// var navLinks = document.querySelectorAll('nav a[data-scroll-top]');
 
 
 // navLinks[1].addEventListener('click', function(e) {
@@ -45,7 +46,7 @@ var navLinks = document.querySelectorAll('nav a[data-scroll-top]');
 //     document.body.scrollTop = navLinks[1].getAttribute("data-scroll-top") / 100 * window.innerHeight;
 // });
 
-
+*/
 /**
  * JavaScript port of Webkit implementation of CSS cubic-bezier(p1x.p1y,p2x,p2y) by http://mck.me
  * http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
