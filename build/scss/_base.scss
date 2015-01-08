@@ -1,229 +1,234 @@
 body {
-    background-color: $background-color;
-    // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAKUlEQVQIW2OcN2/efwY0wAjiI0skJSUxggVhEiABEBsuiGwC/QSxOR4Axb0NvZ03g04AAAAASUVORK5CYII=);
-    font-family: $base-font-family;
-    font-size: 17px;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    font-weight: 500;
-    color: $text-color;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    .skrollable {
-        position: fixed;
-    }
+  background-color: $background-color;
+  // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAKUlEQVQIW2OcN2/efwY0wAjiI0skJSUxggVhEiABEBsuiGwC/QSxOR4Axb0NvZ03g04AAAAASUVORK5CYII=);
+  font-family: $base-font-family;
+  font-size: 17px;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 500;
+  color: $text-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+
+  .skrollable {
+    position: fixed;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
-    font-family: $header-font-family;
-    text-transform: uppercase;
-    margin: 0;
+  font-family: $header-font-family;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 u {
-    text-decoration: none;
-    display: inline-block;
-    @include underline($background-color, lighten($text-color, 20%), 0.15em, 2, 100%, 1.2em);
+  text-decoration: none;
+  display: inline-block;
+  @include underline($background-color, lighten($text-color, 20%), 0.15em, 2, 100%, 1.2em);
 }
 
 .light u,
 u.light {
-    @include underline($text-color, darken($background-color, 20%), 0.15em, 2, 100%, 1.2em);
+  @include underline($text-color, darken($background-color, 20%), 0.15em, 2, 100%, 1.2em);
 }
 
 .red u,
 u.red {
-    @include underline($theme-color, $text-color, 0.15em, 2, 100%, 1.2em);
+  @include underline($theme-color, $text-color, 0.15em, 2, 100%, 1.2em);
 }
 
 .color-highlight {
-    color: $theme-color;
+  color: $theme-color;
 }
 
 .color-white {
-    color: $background-color;
+  color: $background-color;
 }
 
 .small-size {
-    font-size: $small-font-size;
+  font-size: $small-font-size;
 }
 
 .light {
-    color: #e0e0e0;
-    font-weight: 200;
+  color: #e0e0e0;
+  font-weight: 200;
 }
 
 section {
-    width: 100%;
-    h1 {
-        font-size: $h1;
-        margin-top: $h1 / 3;
-    }
-    h2 {
-        font-size: $h2;
-        margin-top: $h2 / 3;
-    }
-    h3 {
-        font-size: $h3;
-        margin-top: $h3 / 3;
-    }
-    h4 {
-        font-size: $h4;
-        margin-top: $h4 / 3;
-    }
-    h5 {
-        font-size: $h5;
-        margin-top: $h5 / 3;
-    }
-    h6 {
-        font-size: $h6;
-        margin-top: $h6 / 3;
-    }
+  width: 100%;
+  h1 {
+    font-size: $h1;
+    margin-top: $h1 / 3;
+  }
+  h2 {
+    font-size: $h2;
+    margin-top: $h2 / 3;
+  }
+  h3 {
+    font-size: $h3;
+    margin-top: $h3 / 3;
+  }
+  h4 {
+    font-size: $h4;
+    margin-top: $h4 / 3;
+  }
+  h5 {
+    font-size: $h5;
+    margin-top: $h5 / 3;
+  }
+  h6 {
+    font-size: $h6;
+    margin-top: $h6 / 3;
+  }
 }
 
 .container {
-    max-width: $content-width;
-    width: 80%;
-    margin: 0 auto;
+  max-width: $content-width;
+  width: 80%;
+  margin: 0 auto;
 }
 
 blockquote {
-    font-style: italic;
-    margin: 0;
-    line-height: 1.3;
-    border-left: 1px solid #888;
-    padding: 0 0 0 1em; 
-    color: lighten($text-color, 15%);
-    b {
-        color: $text-color;
-    }
+  font-style: italic;
+  margin: 0;
+  line-height: 1.3;
+  border-left: 1px solid #888;
+  padding: 0 0 0 1em; 
+  color: lighten($text-color, 15%);
+  b {
+    color: $text-color;
+  }
 }
 
 $nav-width: 14em;
 
 nav {
-    font-size: $small-font-size;
-    font-family: $header-font-family;
+  font-size: $small-font-size;
+  font-family: $header-font-family;
+  position: fixed;
+  top: 1em;
+  right: 0;
+  width: $nav-width;
+  transform: translateX(90%);
+  padding: 1em 2em;
+  background: #eee;
+  border-radius: $border-radius 0 0 $border-radius;
+  z-index: 99999;
+  transition: all 0.5s ease;
+  @include material-shadow(1);
+  &:before {
+    content: 'Menu';
     position: fixed;
-    top: 1em;
-    right: 0;
-    width: $nav-width;
-    transform: translateX(90%);
-    padding: 1em 2em;
+    text-align: right;
+    display: block;
+    margin-right: $nav-width + 4em;
+    right: -2px;
     background: #eee;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+    padding: 0.5em;
     border-radius: $border-radius 0 0 $border-radius;
-    z-index: 99999;
-    transition: all 0.5s ease;
-    @include material-shadow(1);
+    font-weight: 200;
+    box-shadow: 6px 0 0 #eee, top-shadow(1), bottom-shadow(1);
+  }
+  &:hover {
+    @include material-shadow(3);
+    transform: translateX(0);
     &:before {
-        content: 'Menu';
-        position: fixed;
-        text-align: right;
-        display: block;
-        margin-right: $nav-width + 4em;
-        right: -2px;
-        background: #eee;
-        transition: background 0.5s ease, box-shadow 0.5s ease;
-        padding: 0.5em;
-        border-radius: $border-radius 0 0 $border-radius;
-        font-weight: 200;
-        box-shadow: 6px 0 0 #eee, top-shadow(1), bottom-shadow(1);
+      // @include material-shadow(3);
+      box-shadow: 20px 0 0 #eee, 40px 0 0 #eee, top-shadow(3), bottom-shadow(3);
     }
+  }
+  div {
+    border-left: 1px solid #888;
+    padding: 0 0.5em;
+    margin-bottom: 1em;
+    a {
+      margin-left: 1em;
+    }
+  }
+  a {
+    display: inline-block;
+    text-decoration: none;
+    padding-bottom: 0.2em;
+    transition: text-shadow 0.5s ease, background 0.5s ease;
+    font-family: $base-font-family;
+    color: $text-color;
+    @include underline(#eee, #999, 0.2em, 4, 100%, 1.2em);
+    // background: linear-gradient(#999, #999) center 1.2em no-repeat;
+    // background-size: 100% 1px;
     &:hover {
-        @include material-shadow(3);
-        transform: translateX(0);
-        &:before {
-            // @include material-shadow(3);
-            box-shadow: 20px 0 0 #eee, 40px 0 0 #eee, top-shadow(3), bottom-shadow(3);
-        }
+      background-size: 60% 1px;
+    }
+  }
+  &.light {
+    background: #fff - $background-color;
+    &:before {
+      background: #fff - $background-color;
+      box-shadow: 6px 0 0 #fff - $background-color, 0 1.5px 6px rgba(0, 0, 0, 0.12), 0 1.5px 4px rgba(0, 0, 0, 0.24);
     }
     div {
-        border-left: 1px solid #888;
-        padding: 0 0.5em;
-        margin-bottom: 1em;
-        a {
-            margin-left: 1em;
-        }
+      font-weight: 500;
     }
     a {
-        display: inline-block;
-        text-decoration: none;
-        padding-bottom: 0.2em;
-        transition: text-shadow 0.5s ease, background 0.5s ease;
-        font-family: $base-font-family;
-        color: $text-color;
-        @include underline(#eee, #999, 0.2em, 4, 100%, 1.2em);
-        // background: linear-gradient(#999, #999) center 1.2em no-repeat;
-        // background-size: 100% 1px;
-        &:hover {
-            background-size: 60% 1px;
-        }
+      color: $background-color;
+      text-shadow: 3px 0 0 #fff - $background-color, -3px 0 0 #fff - $background-color, 0 2px 0 #fff - $background-color, 0 -2px 0 #fff - $background-color;
     }
-    &.light {
-        background: #fff - $background-color;
-        &:before {
-            background: #fff - $background-color;
-            box-shadow: 6px 0 0 #fff - $background-color, 0 1.5px 6px rgba(0, 0, 0, 0.12), 0 1.5px 4px rgba(0, 0, 0, 0.24);
-        }
-        div {
-            font-weight: 500;
-        }
-        a {
-            color: $background-color;
-            text-shadow: 3px 0 0 #fff - $background-color, -3px 0 0 #fff - $background-color, 0 2px 0 #fff - $background-color, 0 -2px 0 #fff - $background-color;
-        }
-    }
+  }
 }
 
 ul li {
-    list-style: bullet outside none;
-    margin-bottom: 1em;
+  list-style: bullet outside none;
+  margin-bottom: 1em;
 }
 
 figure {
-    float: right;
-    background: $background-color;
-    color: $text-color;
-    display: inline-block;
-    min-width: 20%;
-    width: 20em;
-    padding: 0;
-    margin: 1%;
-    border-radius: #{$border-radius * 1.25} / #{$border-radius};
-    @include material-shadow(1);
-    transform: scaleX(0.8);
-    transition: all 0.5s ease;
-    &:hover {
-        @include material-shadow(2);
-        img {
-            @include material-shadow(4);
-        }
-    }
+  @include material-shadow(1);
+  background: $background-color;
+  border-radius: #{$border-radius * 1.25} / #{$border-radius};
+  color: $text-color;
+  display: inline-block;
+  float: right;
+  margin: 1%;
+  min-width: 20%;
+  padding: 0;
+  transform: scaleX(.8);
+  transition: all .5s ease;
+  width: 20em;
+  z-index: 20;
+
+  &:hover {
+    @include material-shadow(2);
     img {
-        width: 90%;
-        padding: 1em;
-        @include material-shadow(1);
-        border-radius: $border-radius;
-        background: lighten($background-color, 10%);
-        transition: all 0.3s ease;
-        transform: scaleX(1.25);
+      @include material-shadow(4);
     }
-    figcaption {
-        font-size: (7em / 9);
-        padding: 0.4em;
-        margin: 0;
-        text-align: center;
-        font-style: italic;
-        transform: scaleX(1.25);
-    }
+  }
+
+  img {
+    @include material-shadow(1);
+    background: lighten($background-color, 10%);
+    border-radius: $border-radius;
+    padding: 1em;
+    transform: scaleX(1.25);
+    transition: all .3s ease;
+    width: 90%;
+  }
+
+  figcaption {
+    font-size: (7em / 9);
+    font-style: italic;
+    margin: 0;
+    padding: .4em;
+    text-align: center;
+    transform: scaleX(1.25);
+  }
 }
 
 ::selection {
-    background: transparentize($theme-color, 0.6);
-    text-shadow: none;
+  background: transparentize($theme-color, .6);
+  text-shadow: none;
 }
 
 .red ::selection {
-    background: transparentize($background-color, 0.6);
+  background: transparentize($background-color, .6);
 }
