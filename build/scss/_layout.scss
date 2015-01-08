@@ -29,6 +29,16 @@
     }
 }
 
+[id="separator"] {
+    width: 100%;
+    svg {
+        width: 100%;
+        padding: 50vh 50%;
+    }
+}
+
+
+
 [id="references"] {
     margin-bottom: $spacing-unit * 2;
     a {

@@ -7,14 +7,23 @@ var s = skrollr.init({
         six: function(p) {
             return Math.pow(p, 6);
         },
+        three: function(p) {
+            return Math.pow(p, 3);
+        },
+        threeinv: function(p) {
+            return Math.pow(p, 1 / 3);
+        },
         sixinv: function(p) {
             return Math.pow(p, 1 / 6);
         },
         teninv: function(p) {
-            return Math.pow(p, 0.1);
+            return Math.pow(p, 1 / 10);
         },
         bez: function(p) {
-            return Bezier.cubicBezier(.92,.01,.18,1,p)
+            return Bezier.cubicBezier(.92,.01,.18,1,p);
+        },
+        beztwo: function(p) {
+            return Bezier.cubicBezier(.02,.87,.97,.11,p);
         }
     },
     smoothScrolling: false
