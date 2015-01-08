@@ -6,11 +6,11 @@ body {
   font-size: $base-font-size;
   line-height: $base-line-height;
   font-weight: 500;
+  margin: 0;
   color: $text-color;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
-
-  .skrollable {
+  .skrollable:not(.no-fixed) {
     position: fixed;
   }
 }
@@ -94,10 +94,25 @@ blockquote {
   margin: 0;
   line-height: 1.3;
   border-left: 1px solid #888;
-  padding: 0 0 0 1em; 
+  padding: 0 0 0 1em;
   color: lighten($text-color, 15%);
   b {
     color: $text-color;
+  }
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  padding-bottom: 0.2em;
+  transition: text-shadow 0.5s ease, background 0.5s ease;
+  font-family: $base-font-family;
+  color: $text-color;
+  @include underline(#eee, #999, 0.2em, 4, 100%, 1.2em);
+  // background: linear-gradient(#999, #999) center 1.2em no-repeat;
+  // background-size: 100% 1px;
+  &:hover {
+    background-size: 60% 1px;
   }
 }
 
@@ -147,20 +162,6 @@ nav {
       margin-left: 1em;
     }
   }
-  a {
-    display: inline-block;
-    text-decoration: none;
-    padding-bottom: 0.2em;
-    transition: text-shadow 0.5s ease, background 0.5s ease;
-    font-family: $base-font-family;
-    color: $text-color;
-    @include underline(#eee, #999, 0.2em, 4, 100%, 1.2em);
-    // background: linear-gradient(#999, #999) center 1.2em no-repeat;
-    // background-size: 100% 1px;
-    &:hover {
-      background-size: 60% 1px;
-    }
-  }
   &.light {
     background: #fff - $background-color;
     &:before {
@@ -192,18 +193,16 @@ figure {
   margin: 1%;
   min-width: 20%;
   padding: 0;
-  transform: scaleX(.8);
+  transform: scaleX(0.8);
   transition: all .5s ease;
   width: 20em;
   z-index: 20;
-
   &:hover {
     @include material-shadow(2);
     img {
       @include material-shadow(4);
     }
   }
-
   img {
     @include material-shadow(1);
     background: lighten($background-color, 10%);
@@ -213,7 +212,6 @@ figure {
     transition: all .3s ease;
     width: 90%;
   }
-
   figcaption {
     font-size: (7em / 9);
     font-style: italic;
@@ -225,10 +223,10 @@ figure {
 }
 
 ::selection {
-  background: transparentize($theme-color, .6);
+  background: transparentize($theme-color, 0.6);
   text-shadow: none;
 }
 
 .red ::selection {
-  background: transparentize($background-color, .6);
+  background: transparentize($background-color, 0.6);
 }

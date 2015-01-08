@@ -20,30 +20,37 @@ var s = skrollr.init({
             return Math.pow(p, 1 / 10);
         },
         bez: function(p) {
-            return Bezier.cubicBezier(.92,.01,.18,1,p);
+            return Bezier.cubicBezier(.92, .01, .18, 1, p);
         },
         beztwo: function(p) {
-            return Bezier.cubicBezier(.02,.87,.97,.11,p);
+            return Bezier.cubicBezier(.02, .87, .97, .11, p);
         }
     },
-    smoothScrolling: false
+    smoothScrolling: false,
+    edgeStrategy: 'set'
 });
 
-// skrollr.menu.init(s);
+skrollr.menu.init(s);
 
 
-function scrollTo(distance_percent) {
-    document.body.scrollTop = distance_percent / 100 * window.innerHeight;
-    console.log('done');
+function scrollTo(num) {
+    // document.body.scrollTop = navLinks[num].getAttribute("data-scroll-top") / 100 * window.innerHeight;
 }
 
+var navLinks = document.querySelectorAll('nav a[data-scroll-top]');
+
+
+// navLinks[1].addEventListener('click', function(e) {
+//     // e.preventDefault;
+//     document.body.scrollTop = navLinks[1].getAttribute("data-scroll-top") / 100 * window.innerHeight;
+// });
 
 
 /**
  * JavaScript port of Webkit implementation of CSS cubic-bezier(p1x.p1y,p2x,p2y) by http://mck.me
  * http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
  */
-var Bezier = (function(){
+var Bezier = (function() {
     'use strict';
 
     /**
@@ -51,7 +58,7 @@ var Bezier = (function(){
      * @const
      * @type {number}
      */
-    var DEFAULT_DURATION = 400;//ms
+    var DEFAULT_DURATION = 400; //ms
 
     /**
      * The epsilon value we pass to UnitBezier::solve given that the animation is going to run over |dur| seconds.
@@ -71,7 +78,7 @@ var Bezier = (function(){
      * @param p2y {number} Y component of control point 2
      */
     var unitBezier = function(p1x, p1y, p2x, p2y) {
-    
+
         // private members --------------------------------------------
 
         // Calculate the polynomial coefficients, implicit first and last control points are (0,0) and (1,1).
@@ -95,7 +102,7 @@ var Bezier = (function(){
          * @const
          * @type {number}
          */
-        var ax = 1.0 - cx -bx;
+        var ax = 1.0 - cx - bx;
 
         /**
          * Y component of Bezier coefficient C
@@ -160,7 +167,7 @@ var Bezier = (function(){
             // First try a few iterations of Newton's method -- normally very fast.
             for (t2 = x, i = 0; i < 8; i++) {
                 x2 = sampleCurveX(t2) - x;
-                if (Math.abs (x2) < epsilon) {
+                if (Math.abs(x2) < epsilon) {
                     return t2;
                 }
                 d2 = sampleCurveDerivativeX(t2);

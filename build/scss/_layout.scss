@@ -5,7 +5,7 @@
     background-image: url(/img/xrays2.svg);
     background-size: 81.8vmin;
     background-repeat: no-repeat;
-    background-position: 49.8% 36.4vmin;
+    background-position: 49.93% 36.6vmin;
     h1 {
         font-size: 30vmin;
         span {
@@ -21,7 +21,7 @@
     background: $background-color;
     @include material-shadow(4);
     figure {
-        width: 100%;
+        width: calc(100% - 2em);
         img {
             padding: 1em;
         }
@@ -30,12 +30,23 @@
 
 [id="separator"] {
     width: 100%;
+    z-index: 14;
     svg {
         width: 100%;
         padding: 50vh 50%;
     }
 }
 
+
+.issues.container {
+    margin-left: calc(50% - 22.5em);
+    margin-top:5em
+}
+[id="other-issues"] {
+    background: $theme-color;
+    box-shadow: 0 0 0 300em $theme-color;
+    z-index: -20;
+}
 
 
 [id="references"] {
