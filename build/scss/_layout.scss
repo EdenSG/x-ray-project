@@ -2,10 +2,10 @@
     text-align: center;
     width: 100%;
     top: 0;
-    background-image: url(/img/xrays.svg);
-    background-size: 82.6vmin;
+    background-image: url(/img/xrays2.svg);
+    background-size: 81.8vmin;
     background-repeat: no-repeat;
-    background-position: 49.7% 35.7vmin;
+    background-position: 49.8% 36.4vmin;
     h1 {
         font-size: 30vmin;
         span {
@@ -20,7 +20,6 @@
 [id="diagnosis"] {
     background: $background-color;
     @include material-shadow(4);
-    border-radius: $border-radius;
     figure {
         width: 100%;
         img {
