@@ -11,6 +11,9 @@ $border-radius:     .2em;
 
 $spacing-unit:      30px;
 
+$easing-fast:       cubic-bezier(.38, .52, .04, 1);
+$easing-slow:       cubic-bezier(.8, .03, .04, 1);
+
 $text-color:        rgb(17, 17, 17);
 $background-color:  rgb(224, 224, 224);
 $theme-color:       #d14749;

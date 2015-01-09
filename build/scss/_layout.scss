@@ -22,17 +22,25 @@
     text-align: center;
     width: 100%;
     top: 0;
-    background-image: url(/img/xrays2.svg);
+    background-image: url(../img/xrays2.svg);
     background-size: 81.8vmin;
     background-repeat: no-repeat;
     background-position: 49.925% 36.51vmin;
     h1 {
         font-size: 30vmin;
         span {
-            transition: color 0.6s ease;
+            transition: color .6s $easing-fast;
             &:not(.no-opacity):hover {
                 color: transparent;
             }
+        }
+    }
+    [id="ref"] {
+        font-size: $h5;
+        @include underline(rgb(224, 224, 224), lighten($text-color, 20%), 0, 1, 99%, 1.3em);
+        transition: background .5s $easing-slow;
+        &:hover {
+            @include underline(rgb(224, 224, 224), lighten($text-color, 20%), 0, 1, 0%, 1.3em);
         }
     }
 }
@@ -73,12 +81,13 @@
     margin-bottom: $spacing-unit * 2;
     a {
         color: $theme-color;
-        transition: all 0.4s ease;
+        transition: all 0.4s $easing-fast;
         text-decoration: none;
+        display: inline;
         @include underline($background-color, darken($theme-color, 15%), 0.2em, 3, 100%, 1.1em);
         &:hover {
             color: darken($theme-color, 30%);
-            transition: all 0.2s ease;
+            // transition: all 0.2s ease;
             box-shadow: 0 1px 0 0 transparent;
             @include underline($background-color, darken($theme-color, 15%), 0.2em, 3, 100%, 1.1em);
         }

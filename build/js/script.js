@@ -264,18 +264,21 @@ var s = skrollr.init({
     smoothScrolling: false,
     render: function(data) {
         //Loop
-        if (data.curTop == data.maxTop-10) {
-            document.body.scrollTop = 0;
-        }
+        // if (data.curTop >= data.maxTop-10) {
+        //     document.body.scrollTop = 0;
+        // }
+        // if (data.curTop <= -1) {
+        //     document.body.scrollTop = data.maxTop;
+        // }
         console.log('render');
     }
 });
 
-skrollr.menu.init(s);
+// skrollr.menu.init(s);
 
 
 function scrollTo(num) {
-    // document.body.scrollTop = navLinks[num].getAttribute("data-scroll-top") / 100 * window.innerHeight;
+    document.body.scrollTop = num / 100 * window.innerHeight;
 }
 
 function hideAlert() {

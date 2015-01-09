@@ -12,7 +12,7 @@ An **x-ray tube** is a device that emits x-rays. There are quite a few types of 
 
 ### Interesting facts
 
-* There are two types of x-rays: *soft x-rays* and *hard x-rays*. Soft x-rays are usually defined as within the range of 10nm to 100pm (10<sup>-8</sup>m to 10<sup>-10</sup>m), whereas hard x-rays are between 100pm and 10pm (10<sup>-10</sup>m to 10<sup>-11</sup>m).
+* There are two types of x-rays: **soft x-rays** and **hard x-rays**. Soft x-rays are usually defined as within the range of 10nm to 100pm (10<sup>-8</sup>m to 10<sup>-10</sup>m), whereas hard x-rays are between 100pm and 10pm (10<sup>-10</sup>m to 10<sup>-11</sup>m).
 * X-rays carry about 1,000,000 times the energy of visible light.
 * They were first studied by Wilhelm Röntgen in 1885, and by Nickola Tesla in 1884.
 * X-rays were first used medically in January 1896 in Birmingham, England to see a needle stuck in a patient's hand.
@@ -40,7 +40,7 @@ On the radiologist’s side, there are a couple things that are looked for in th
 
 There are a couple issues with x-rays, by far the largest being that x-rays are a type of ionizing radiation — similar to radiation from nuclear fission — and are widely classified as a carcinogen. The level of radiation that a patient is exposed to during a normal radiograph is very low, generally known as too low to cause any harm, except when repeated very often. However, the levels of exposure that a patient is exposed to for a Computed tomography (CT) scan are much higher, and it is estimated that about 0.4% of cancers in the US are caused by CT scans (Brenner & Hall, 2007). The average chest radiograph delivers the same amount of radiation as 10 days worth of background radiation (0.1mSv), whereas a chest CT scan delivers about 70 times as much radiation, equal to about 2 years of background radiation.
 
-Another issue with radiography is that, due to the decreasing cost and incresing availability of outsourced labour, much of the analysis of radiographs is now being outsourced to India, so medical organizations are sending raw data to India and recieving diagnoses for far less cost than had they hired experienced radiologists to work in their facilities. 
+Another issue with radiography is that, due to the decreasing cost and increasing availability of outsourced labour, much of the analysis of radiographs is now being outsourced to India, so medical organizations are sending raw data to India and receiving diagnoses for far less cost than had they hired experienced radiologists to work in their facilities. 
 
 Finally, as x-rays are becoming more and more popular, cheap, and reliable, medical students are taught how to diagnose many types of diseases from x-rays, but they are not often taught of the risks involved with x-rays (Pai, 2010).
 
